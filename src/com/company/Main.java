@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         final ArrayList<Boy> boys = new ArrayList<>() {{
             add(new Boy("Николай", 68));
@@ -21,14 +21,13 @@ public class Main {
             add(new Boy("Михаил", 1));
             add(new Boy("Яков", 30));
         }};
-
-        Map<String ,Long > map = boys.stream()
-                .filter(x -> ( x.getAge() > 17))
+        Map<String, Long> map = boys.stream()
+                .filter(x -> (x.getAge() > 17))
                 .map(Boy::getName)
                 .distinct()
                 .sorted()
                 .limit(4)
-                .collect(Collectors.groupingBy(c -> c , Collectors.counting() ));
+                .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
 
 
         System.out.println(map);
