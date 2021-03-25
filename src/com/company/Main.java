@@ -22,12 +22,12 @@ public class Main {
             add(new Boy("Яков", 30));
         }};
 
-
         Map<String ,Long > map = boys.stream()
                 .filter(x -> ( x.getAge() > 17))
                 .map(Boy::getName)
+                .distinct()
                 .sorted()
-                .limit(6)
+                .limit(4)
                 .collect(Collectors.groupingBy(c -> c , Collectors.counting() ));
 
 
